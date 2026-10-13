@@ -14,5 +14,21 @@ export default defineNuxtConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  modules: [
+    [
+        '@storyblok/nuxt',
+        {
+            accessToken: process.env.STORYBLOK_KEY,
+            apiOptions: {
+                region: 'eu',
+            },
+        }
+    ]
+],
+runtimeConfig: {
+    public: {
+        storyblok_version: process.env.STORYBLOK_VERSION
+    }
+}
 })
 
